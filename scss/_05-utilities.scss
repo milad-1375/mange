@@ -1,0 +1,40 @@
+@use "03-mixins" as u;
+@use "01-variables" as *;
+
+@include u.respond-to($xl) {
+    .column-gap-lg-9rem {
+        column-gap: 9rem;
+    }
+}
+
+.row-gap-2rem {
+    row-gap: 2rem;
+}
+
+.column-gap-1rem {
+    column-gap: 1.6875rem;
+}
+
+.text {
+    &-center {
+        text-align: center;
+    }
+    &-end {
+        text-align: end;
+    }
+}
+
+// for width >= lg
+@include u.respond-to($lg) {
+    .text {
+        &-lg-center {
+            text-align: center;
+        }
+        &-lg-start {
+            text-align: start;
+        }
+        &-lg-end {
+            text-align: end;
+        }
+    }
+}

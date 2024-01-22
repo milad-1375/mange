@@ -1,0 +1,63 @@
+@use "03-mixins" as u;
+
+:root {
+    // colors
+    --BrightRed: hsl(12, 88%, 59%);
+    --DarkBlue: hsl(228, 39%, 23%);
+
+    // ### Neutral
+    --DarkGrayishBlue: hsl(227, 12%, 61%);
+    --VeryDarkBlue: hsl(233, 12%, 13%);
+    --VeryPaleRed: hsl(13, 100%, 96%);
+    --VaryLightGray: hsl(0, 0%, 98%);
+    --White: #fff;
+
+    // font family
+    --f-family: 'Be Vietnam Pro', sans-serif;
+    // font size
+    --fs-normal: 1rem;
+    --fs-subHeading: 2rem;
+    --fs-heading: clamp(2.688rem, 0.563vw + 2.555rem, 3.063rem);
+    // font weight
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-bold: 700;
+    // transition
+    --tr-300ms: 300ms ease-in-out;
+
+}
+
+// bootstrap breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+
+$xs : map-get($grid-breakpoints, 'xs');
+$sm : map-get($grid-breakpoints, 'sm');
+$md : map-get($grid-breakpoints, 'md');
+$lg : map-get($grid-breakpoints, 'lg');
+$xl : map-get($grid-breakpoints, 'xl');
+$xxl : map-get($grid-breakpoints, 'xxl');
+
+.heading {
+  color: var(--DarkBlue);
+  font-weight: var(--fw-bold);
+
+  &--primary {
+    font-size: var(--fs-subHeading);
+  }
+
+  &--secondary {
+    font-size: var(--fs-subHeading);
+  }
+
+  &--tertiary {
+    font-size: var(--fs-normal);
+  }
+}

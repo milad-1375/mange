@@ -1,0 +1,47 @@
+@use "../03-mixins" as u;
+@use "../01-variables" as *;
+
+.intro {
+
+    &__text {
+        max-width: u.toRem(435);
+        margin-block-start: u.toRem(38);
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        @include u.respond-to($lg) {
+            margin-block-start: u.toRem(178);
+            align-items: flex-start;
+            text-align: start;
+        }
+
+    }
+
+    &__heading {
+        color: var(--DarkBlue);
+        @include u.font("", var(--fs-heading), var(--fw-bold));
+        margin-block-end: u.toRem(14);
+        @include u.respond-to($lg) {
+            margin-block-end: u.toRem(32);
+        }
+    }
+
+    &__description {
+        margin-block-end: u.toRem(39);
+    }
+
+    &__button {
+        @include u.respond-to($lg) {
+            align-self: flex-start;
+        }
+    }
+
+    &__image {
+        margin-block-start: u.toRem(48);
+        @include u.respond-to($lg) {
+            margin-block-start: u.toRem(112);
+        }
+    }
+}

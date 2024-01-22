@@ -1,0 +1,29 @@
+@use "../03-mixins" as u;
+@use "../01-variables" as *;
+
+
+.header {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        right: -10%;
+        top: -5%;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/bg-tablet-pattern.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        @include u.respond-to($lg) {
+            right: 0%;
+            top: -10%;
+            width: 50%;
+            height: 100%;
+            background-size: cover;
+        }
+    }
+}

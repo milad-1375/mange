@@ -1,0 +1,65 @@
+@use "../03-mixins" as u;
+@use "../01-variables" as *;
+@use "../06-compunents" as *;
+
+.testimonial {
+    margin-block-start: 6rem;
+
+    &__title {
+        text-align: center;
+        margin-block-end: 2rem;
+    }
+
+    &_slider {
+        margin-top: u.toRem(150);
+        position: relative;
+
+        display: flex;
+        column-gap: 2.5rem;
+        justify-content: center;
+
+        > .slide {
+            flex: 0 0 100%;
+            background-color: var(--VaryLightGray);
+            text-align: center;
+            cursor: pointer;
+            padding: u.toRem(64) u.toRem(40) u.toRem(40);
+            > h3 {
+                padding-bottom: 1rem;
+            }
+            @include u.respond-to($lg) {
+                flex: 0 0 39.33%;
+            }
+        }
+    }
+
+    &__image {
+        width: u.toRem(75);
+        aspect-ratio: 1;
+
+        position: absolute;
+        top: -2.5rem;
+        transform: translateX(-50%);
+    }
+
+    &__navDots {
+        display: flex;
+        justify-content: center;
+        column-gap: 1rem;
+
+        padding: 1rem;
+    }
+
+    &__indicator {
+        background-color: var(--BrightRed);
+        opacity: .5;
+        border-radius: 50%;
+        padding: .35rem;
+        transition: background-color var(--tr-300ms);
+        cursor: pointer;
+
+        &.current-slide {
+            opacity: 1;
+        }
+    }
+}

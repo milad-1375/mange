@@ -1,0 +1,92 @@
+@use "../03-mixins" as u;
+@use "../01-variables" as *;
+@use "../06-compunents" as *;
+
+
+.about {
+
+    margin-block-start: u.toRem(120);
+
+    position: relative;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 75%;
+        height: 27rem;
+        background-image: url(../images/bg-tablet-pattern.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: -30%;
+        right: -45%;
+        z-index: -1;
+
+        @include u.respond-to($lg) {
+            display: none;
+        }
+    }
+
+    &__text {
+        max-width: u.toRem(420);
+        text-align: center;
+        margin-inline: auto;
+
+        @include u.respond-to($lg) {
+            text-align: start;
+            margin-inline: 0;
+        }
+
+
+        h2 {
+            margin-bottom: u.toRem(30);
+        }
+    }
+
+
+
+    &__list {
+        counter-reset: item;
+    }
+
+    &__item {
+
+        &:not(:first-child) {
+            margin-top: u.toRem(30);
+        }
+
+        h3 {
+            position: relative;
+            padding-left: 2rem;
+            padding: u.toRem(14) 0 u.toRem(14) 5rem;
+            background-color: #FFF0EB;
+            border-top-left-radius: 3rem;
+            border-bottom-left-radius: 3rem;
+            margin-bottom: u.toRem(10);
+
+
+            @include u.respond-to($lg) {
+                background-color: transparent;
+            }
+            &::before {
+                counter-increment: item;
+                content: "0" counter(item);
+    
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                padding: u.toRem(14) u.toRem(25);
+                background-color: var(--BrightRed);
+                color: var(--White);
+                border-radius: 3rem;
+            }
+        }
+
+        p {
+            @include u.respond-to($lg) {
+                padding-left: 5rem;
+            }
+        }
+    }
+}

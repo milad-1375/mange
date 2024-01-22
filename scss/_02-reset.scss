@@ -1,0 +1,40 @@
+@use "01-variables" as *;
+@use "03-mixins" as u;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  outline-color: transparent;
+  border: none;
+}
+
+html, body {
+  font-family: var(--f-family);
+  font-size: var(--fs-normal);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: var(--VeryDarkBlue);
+}
+
+p {
+  font-size: var(--fs-normal);
+  color: var(--DarkGrayishBlue);
+  line-height: 1.8;
+
+  @include u.respond-to($lg) {
+    line-height: 1.6;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
